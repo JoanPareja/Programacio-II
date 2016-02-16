@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "functions.h"
 
+//Joan Pareja
+//https://github.com/JoanPareja/Programacio-II.git
 
 int main() {
 	int i = 0;
