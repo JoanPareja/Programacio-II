@@ -1,9 +1,9 @@
 <snippet>
-  <content><![CDATA[
-# ${Programacó II}
+  <content>
+# Programacó II
 A simple repository for my files from Programació II
 ## Usage
-TODO: Write usage instructions
+See and maybe laught at my low knowledge of prgraming.
 ## Contributing
 1.Water.
 2.Plants, thanks for the awesome Oxygen, love ya.
