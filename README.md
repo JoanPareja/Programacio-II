@@ -1,7 +1,7 @@
 <snippet>
   <content>
-# Programacó II
-A simple repository for my files from Programació II
+# ProgramacÃ³ II
+A simple repository for my files from ProgramaciÃ³ II
 ## Usage
 See and maybe laught at my low knowledge of prgraming.
 ## Contributing
@@ -10,6 +10,6 @@ See and maybe laught at my low knowledge of prgraming.
 3.A few very inteligent people that contributed in the process of developing the modern computer.
 ## Credits
 Joan Pareja
-]]></content>
+</content>
   <tabTrigger>readme</tabTrigger>
 </snippet>
