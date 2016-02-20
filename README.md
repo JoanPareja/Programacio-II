@@ -1,7 +1,7 @@
 <snippet>
   <content>
 # Programacó II
-A simple repository for my files from Programació II
+A simple repository for my files of Programació II
 ## Usage
 See and maybe laught at my low knowledge of programing.
 ## Contributing
