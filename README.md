@@ -11,5 +11,5 @@ See and maybe laught at my low knowledge of prgraming.
 ## Credits
 Joan Pareja
 </content>
-  <tabTrigger>readme</tabTrigger>
+  <tabTrigger></tabTrigger>
 </snippet>
