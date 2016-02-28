@@ -40,26 +40,37 @@ int main(){
 		}
 	}
 	
+	enum orientation{down, up, right, left};
 
 	ship1_orientation = rand()%4;
 	for ( i = 1; i < ship1_lenght; i++){
-		if (ship1_orientation == 0){
+		if (ship1_orientation == down){
 			(*(*(sea + ship1_x+i) + ship1_y))='A';
 		}
-		if (ship1_orientation == 1){
+		if (ship1_orientation == up){
 			(*(*(sea + ship1_x-i) + ship1_y))='A';
 		}
-		if (ship1_orientation == 2){
+		if (ship1_orientation == right){
 			(*(*(sea + ship1_x) + ship1_y+i))='A';
 		}
-		if (ship1_orientation == 3){
+		if (ship1_orientation == left){
 			(*(*(sea + ship1_x) + ship1_y-i))='A';
 		}
 	}
 	
 
+	//
+	
 
-	printmap(sea, n);
+	printf("Shot\nX:");
+	scanf_s("%i", &x);
+	getchar();
+	printf("Y:");
+	scanf_s("%i", &y);
+	getchar();
+	
+
+	printmap(sea, n, x, y);
 
 
 	free(sea);
