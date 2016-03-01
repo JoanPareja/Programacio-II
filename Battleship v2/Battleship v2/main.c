@@ -6,7 +6,7 @@
 
 
 int main(){
-	int i, j, n, y=0, x=0, weapon=0, hits=0;
+	int i, j, n, y=0, x=0, weapon=0, hits=0, hit_state=0, scans=2;
 	int** sea;
 	int** printable_sea;
 	int ship1_x = 0, ship1_y = 0, ship1_lenght = 1, ship1_orientation = rand() % 4;
@@ -62,22 +62,21 @@ int main(){
 	ship_generate(sea, ship3_x, ship3_y, ship3_orientation, ship3_lenght, n, ship3_img);
 	ship_generate(sea, ship4_x, ship4_y, ship4_orientation, ship4_lenght, n, ship4_img);
 	
+	enum hit_type{ miss = 1, hit_first = 2, hit_second = 3 };
 
 	do{		
+
 		printmap(printable_sea, n);
 
-		if ((*(*(printable_sea + x) + y)) != '~' && (*(*(printable_sea + x) + y)) != '-' && (*(*(printable_sea + x) + y)) != (*(*(sea + x) + y))){
+		if (hit_state==hit_first)
 			printf("\nYou hit a ship!!\n");
-			hits++;
-		}
-		else if ((*(*(printable_sea + x) + y)) == '~' && (*(*(printable_sea + x) + y)) == (*(*(sea + x) + y)))
+		else if (hit_state == miss)
 			printf("\nYou missed.\n");
-
-		else if ((*(*(printable_sea + x) + y)) != '~' && (*(*(printable_sea + x) + y)) == (*(*(sea + x) + y)))
+		else if (hit_state == hit_second)
 			printf("\nYou already hit this ship.\n");
 
 
-		printf("What do you want to do: shoot(1) scan (2):");
+		printf("Scans remainging: %i \nWhat do you want to do: shoot(1) scan (2):", scans);
 		scanf_s("%i", &weapon);
 		getchar();
 
@@ -90,13 +89,24 @@ int main(){
 			scanf_s("%i", &y);
 			getchar();
 			y = y - 1;
+
 			(*(*(printable_sea + x) + y)) = (*(*(sea + x) + y));
+
+			if ((*(*(printable_sea + x) + y)) != '~' && (*(*(printable_sea + x) + y)) != '-' && (*(*(printable_sea + x) + y)) == (*(*(sea + x) + y))){
+				hit_state = hit_first;
+				hits++;
+			}
+			else if ((*(*(printable_sea + x) + y)) == '~' && (*(*(printable_sea + x) + y)) == (*(*(sea + x) + y)))
+				hit_state = miss;
+			else if ((*(*(printable_sea + x) + y)) != '~' && (*(*(printable_sea + x) + y)) == (*(*(sea + x) + y)))
+				hit_state = hit_second;
 		}
 
 		if (weapon == 2){
 			printf("Scanning...\n");
 			printmap(sea, n);
 			Sleep(1000);
+			scans--;
 		}
 
 		if (hits == 10){
@@ -104,6 +114,8 @@ int main(){
 			scanf_s("%c", &option);
 			getchar();
 		}
+		else if (option == y)
+			scans = 2;
 		
 		system("cls");
 
